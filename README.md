@@ -17,9 +17,13 @@ mochawesome:7.1.3
 
 #Comandos de instalação
 
-Cypress:npm install cypress --save-dev
+Cypress:
 
-Mochawesome: npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
+npm install cypress --save-dev
+
+Mochawesome: 
+
+npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
 
 ## Como Rodar o Código e Gerar Relatórios Automatizados
 
