@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-04T03:12:41.072Z",
+    "end": "2024-08-04T03:13:18.277Z",
+    "duration": 37205,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "84f54b80-bbc1-43ed-8a07-f3ea442c4f4e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\E2E.cy.js",
+      "file": "cypress\\e2e\\E2E.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 1435,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://seubarriga.wcaquino.me/login');",
+              "err": {},
+              "uuid": "18f3265f-cebc-4843-8ce1-773dff43dd61",
+              "parentUUID": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Feature01_Loginn",
+              "fullTitle": "template spec Feature01_Loginn",
+              "timedOut": null,
+              "duration": 6280,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.Feature01_Login();",
+              "err": {},
+              "uuid": "d2f49922-3029-4007-b725-c7b447198a70",
+              "parentUUID": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Feature02_Contas",
+              "fullTitle": "template spec Feature02_Contas",
+              "timedOut": null,
+              "duration": 10026,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.Feature02_Contas();",
+              "err": {},
+              "uuid": "8f5ca6aa-67da-43b2-af96-95d68f12fcb0",
+              "parentUUID": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Feature03_Movimentação",
+              "fullTitle": "template spec Feature03_Movimentação",
+              "timedOut": null,
+              "duration": 14859,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.Feature03_Movimentação();",
+              "err": {},
+              "uuid": "a22ed774-ec7e-41be-b2ce-303ce82cbc3b",
+              "parentUUID": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Feature04_Resumo_mensal",
+              "fullTitle": "template spec Feature04_Resumo_mensal",
+              "timedOut": null,
+              "duration": 2820,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.Feature04_Resumo_mensal();",
+              "err": {},
+              "uuid": "0fe67056-0742-4b23-9a3d-fd63eedb08f6",
+              "parentUUID": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Feature05_Logout",
+              "fullTitle": "template spec Feature05_Logout",
+              "timedOut": null,
+              "duration": 1499,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.Feature05_Logout();",
+              "err": {},
+              "uuid": "5e23b422-cf50-4f70-ae60-ea3b485e821f",
+              "parentUUID": "351d50e5-19f1-4a67-bbc5-06b9416c19f2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "18f3265f-cebc-4843-8ce1-773dff43dd61",
+            "d2f49922-3029-4007-b725-c7b447198a70",
+            "8f5ca6aa-67da-43b2-af96-95d68f12fcb0",
+            "a22ed774-ec7e-41be-b2ce-303ce82cbc3b",
+            "0fe67056-0742-4b23-9a3d-fd63eedb08f6",
+            "5e23b422-cf50-4f70-ae60-ea3b485e821f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 36919,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report_2024-08-04",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "reportFilename": "report_2024-08-04",
+        "overwrite": false,
+        "html": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

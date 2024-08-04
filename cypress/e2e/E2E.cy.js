@@ -1,7 +1,6 @@
 describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://seubarriga.wcaquino.me/login');
-    
+  beforeEach('Acessar Plataforma', () => {
+    cy.visit('/');    
   })
   it('Feature01_Loginn',() => {
     cy.Feature01_Login();

@@ -8,11 +8,7 @@ function G(length) {
 
 const RandomNumber = G(25);
 
-Cypress.Commands.add('Feature01_Login', () => {
-
-    cy.visit('/');
-    
-    
+Cypress.Commands.add('Feature01_Login', () => {  
     //Cadastro
     cy.log('Cadastro')
     
@@ -42,8 +38,6 @@ Cypress.Commands.add('Feature01_Login', () => {
   });
 
   Cypress.Commands.add('Feature02_Contas', () => { 
-    
-    cy.visit('/');
     Login();
     //Adicionar 2 contas
     cy.contains('Contas').click();
@@ -64,11 +58,11 @@ Cypress.Commands.add('Feature01_Login', () => {
     cy.contains(`${Conta1}${RandomNumber}`).should('be.visible');
     cy.contains(`${Conta2}${RandomNumber}`).should('be.visible');
     //Alterar nome das contas
-    cy.get("[class='glyphicon glyphicon-edit']").eq(3).click();
+    cy.get("[class='glyphicon glyphicon-edit']").eq(2).click();
     cy.get('#nome').clear().type(`${Conta1Alt}${RandomNumber}`);
     cy.contains('Salvar').click()
 
-    cy.get("[class='glyphicon glyphicon-edit']").eq(4).click();
+    cy.get("[class='glyphicon glyphicon-edit']").eq(3).click();
     cy.get('#nome').clear().type(`${Conta2Alt}${RandomNumber}`);
     cy.contains('Salvar').click();
 
@@ -86,20 +80,24 @@ Cypress.Commands.add('Feature01_Login', () => {
     cy.contains('Criar Movimentação').click();
     cy.get('#data_transacao').type(`${Data1}`);
     cy.get('#data_pagamento').type(`${Data1}`);
-    cy.get('#descricao').type('Calma')
-    cy.get('#interessado').type('Seu Madruga')
-    cy.get('#valor').type('12')
+    cy.get('#descricao').type('Calma');
+    cy.get('#interessado').type('Seu Madruga');
+    cy.get('#valor').type('12');
+    cy.get('#conta').select(`${ContaPermanente1}`);
     cy.contains('Salvar').click();
     cy.contains('Contas').click();
     cy.contains('Listar').click();
-    cy.get('[class="glyphicon glyphicon-remove-circle"]').first().click();
-    cy.contains('Conta em uso na movimentações').should('be.visible');
+    cy.get('[class="glyphicon glyphicon-remove-circle"]').eq(1).click();
+    cy.contains('Conta em uso na movimentações').should('be.visible');  
+
+    cy.get('[class="glyphicon glyphicon-remove-circle"]').eq(2).click();
+    cy.get('[class="glyphicon glyphicon-remove-circle"]').eq(2).click();
+
 
     
 })
 
 Cypress.Commands.add('Feature03_Movimentação', () => {  
-    cy.visit('/');
     Login();
     //Criar no mínimo 2 movimentações para cada conta, 2 para cada situação, 2 meses diferentes;
     //Conta1
@@ -192,7 +190,6 @@ Cypress.Commands.add('Feature03_Movimentação', () => {
 })
 
 Cypress.Commands.add('Feature04_Resumo_mensal', () => {  
-    cy.visit('/');
     Login();
 
     //Utilize os filtros para exibir as movimentações criadas;
@@ -208,7 +205,6 @@ Cypress.Commands.add('Feature04_Resumo_mensal', () => {
     cy.contains('Movimentação removida com sucesso!').should('be.visible');
 })
 Cypress.Commands.add('Feature05_Logout', () => {   
-    cy.visit('/');
     Login();
     //Logout
     cy.contains('Sair').click()
