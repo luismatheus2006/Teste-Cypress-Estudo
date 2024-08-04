@@ -1,4 +1,4 @@
-import { Senha, Conta1, Conta2, Data1, Data2 , Name } from './variaveis';
+import { Senha, Conta1, Conta2, Name } from './variaveis';
 
 function G(length) {
     const min = Math.pow(10, length - 1);
@@ -36,25 +36,19 @@ Cypress.Commands.add('FluxoLoginInvalido', (LoginInvalido) => {
 
   });
 
-  Cypress.Commands.add('FluxoCriarContas', () => { 
+  Cypress.Commands.add('FluxoCriarContas', (CriarConta) => { 
 
     //Adicionar 2 contas
     cy.contains('Contas').click();
     cy.contains('Adicionar').click();
-    cy.get('#nome').type(`${Conta1}`);
+    cy.get('#nome').type(CriarConta.Conta);
     cy.contains('Salvar').click();
     cy.contains('Conta adicionada com sucesso!').should('be.visible');
 
     cy.contains('Contas').click();
-    cy.contains('Adicionar').click();
-    cy.get('#nome').type(`${Conta2}`);
-    cy.contains('Salvar').click();
-    cy.contains('Conta adicionada com sucesso!').should('be.visible');
-    //Listar todas as contas
-    cy.contains('Contas').click();
     cy.contains('Listar').click();
-    cy.contains(`${Conta1}`).should('be.visible');
-    cy.contains(`${Conta2}`).should('be.visible');
+    cy.contains(CriarConta.Conta).should('be.visible');
+   
 
 })
 Cypress.Commands.add('FluxoAlterarNomeConta', () => { 
@@ -82,13 +76,6 @@ Cypress.Commands.add('FluxoAlternativoContaNomeJaExistente', () => {
 
 Cypress.Commands.add('FluxoExcluirContaComMovimentação', () => {
 
-    cy.contains('Criar Movimentação').click();
-    cy.get('#data_transacao').type(`${Data1}`);
-    cy.get('#data_pagamento').type(`${Data1}`);
-    cy.get('#descricao').type('Calma');
-    cy.get('#interessado').type('Seu Madruga');
-    cy.get('#valor').type('12');
-    cy.contains('Salvar').click();
     cy.contains('Contas').click();
     cy.contains('Listar').click();
     cy.get('[class="glyphicon glyphicon-remove-circle"]').eq(0).click();
@@ -96,72 +83,22 @@ Cypress.Commands.add('FluxoExcluirContaComMovimentação', () => {
 })  
 
 
-Cypress.Commands.add('FluxoCriarMovimentacao', (criarMovimentacao) => {  
+Cypress.Commands.add('FluxoCriarMovimentacao', (CriarMovimentacao) => {  
     
-    //Criar no mínimo 2 movimentações para cada conta, 2 para cada situação, 2 meses diferentes;
+    //Criar movimentações
     cy.contains('Criar Movimentação').click();
-    cy.get('#data_transacao').type(`${Data1}`);
-    cy.get('#data_pagamento').type(`${Data1}`);
+    cy.get('#data_transacao').clear().type(CriarMovimentacao.Data);
+    cy.get('#data_pagamento').clear().type(CriarMovimentacao.Data);
     cy.get('#descricao').type('Calma')
     cy.get('#interessado').type('Seu Madruga')
-    cy.get('#valor').type('12')
-    cy.get('#conta').select(criarMovimentacao.Conta);
-    cy.get('#status_pendente').click();
-    cy.get('#tipo').select('Receita');
+    cy.get('#valor').type(CriarMovimentacao.Valor)
+    cy.get('#conta').select(CriarMovimentacao.Conta);
+    cy.get(`${CriarMovimentacao.Status}`).click();
+    cy.get('#tipo').select(CriarMovimentacao.Tipo);
     cy.contains('Salvar').click();
-    cy.contains('Movimentação adicionada com sucesso!').should('be.visible');
+    cy.contains(CriarMovimentacao.Resposta).should('be.visible');
 
-    cy.get('#data_transacao').type(`${Data2}`);
-    cy.get('#data_pagamento').type(`${Data2}`);
-    cy.get('#descricao').type('Calma')
-    cy.get('#interessado').type('Seu Madruga')
-    cy.get('#valor').type('12')
-    cy.get('#conta').select(criarMovimentacao.Conta);
-    cy.get('#status_pago').click();
-    cy.get('#tipo').select('Despesa');
-    cy.contains('Salvar').click();
-    cy.contains('Movimentação adicionada com sucesso!').should('be.visible');
-
-})
-
-Cypress.Commands.add('FluxoValidacaoCampoDataValor', () => {  
-    //Validar campo data
-    cy.contains('Criar Movimentação').click();
-    cy.get('#data_transacao').type(`12032023`);
-    cy.get('#data_pagamento').type(`12042023`);
-    cy.get('#descricao').type('Calma')
-    cy.get('#interessado').type('Seu Madruga')
-    cy.get('#valor').type('12')
-    cy.get('#status_pago').click();
-    cy.get('#tipo').select('Despesa');
-    cy.contains('Salvar').click();
-    cy.contains('Data da Movimentação inválida (DD/MM/YYYY)').should('be.visible');
-    cy.contains('Data do pagamento inválida (DD/MM/YYYY)').should('be.visible');
-
-
-    cy.get('#data_transacao').type(`ajsdhasj`);
-    cy.get('#data_pagamento').type(`asoujdhsaidasi`);
-    cy.get('#descricao').type('Calma');
-    cy.get('#interessado').type('Seu Madruga');
-    cy.get('#valor').type('12');
-    cy.get('#conta').select(`${Conta1}`);
-    cy.get('#status_pago').click();
-    cy.get('#tipo').select('Despesa');
-    cy.contains('Salvar').click();
-    cy.contains('Data da Movimentação inválida (DD/MM/YYYY)').should('be.visible');
-    cy.contains('Data do pagamento inválida (DD/MM/YYYY)').should('be.visible');
-
-
-    //Validar campo valor 
-    cy.get('#data_transacao').type(`${Data2}`);
-    cy.get('#data_pagamento').type(`${Data2}`);
-    cy.get('#descricao').type('Calma');
-    cy.get('#interessado').type('Seu Madruga');
-    cy.get('#valor').type('idhjausdhiasd');
-    cy.get('#status_pago').click();
-    cy.get('#tipo').select('Despesa');
-    cy.contains('Salvar').click();
-    cy.contains('Valor deve ser um número').should('be.visible');
+   
 })
 
 Cypress.Commands.add('FluxoResumoMensal', () => {  

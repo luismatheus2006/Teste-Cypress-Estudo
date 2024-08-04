@@ -1,9 +1,6 @@
+//Variaveis
 
 
-
-// Concatenar o número aleatório com o domínio de e-mail
-
-export const Email = `Vivar@gmail.com`;
 export const Senha = `Vivar123`;
 export const Conta1 = `Nome da conta 1`;
 export const Conta2 = `Nome da conta 2`;
