@@ -2,19 +2,80 @@ describe('template spec', () => {
   beforeEach('Acessar Plataforma', () => {
     cy.visit('/');    
   })
-  it('Feature01_Loginn',() => {
-    cy.Feature01_Login();
+  it('FluxoCadastroLogin',() => {
+    cy.FluxoCadastroLogin( {
+      Email:"CadastroVivar@gmail.com"
   });
-  it('Feature02_Contas',() => {
-    cy.Feature02_Contas();
   });
-  it('Feature03_Movimentação',() => {
-    cy.Feature03_Movimentação();
+
+  it('FluxoLoginInvalido',() => {
+    cy.FluxoLoginInvalido({
+      Email:"EmailClaramentoInvalidoNoSistema@gmail.com"
+    });
   });
-  it('Feature04_Resumo_mensal',() => {
-    cy.Feature04_Resumo_mensal();
+
+  it('FluxoCriarContas',() => {
+    cy.FluxoCadastroLogin({
+      Email: "CriarContaVivar@gmail.com"
+    })
+    cy.FluxoCriarContas();
   });
-  it('Feature05_Logout',() => {
-    cy.Feature05_Logout();
+
+  it('FluxoAlterarNomeConta',() => {
+    cy.FluxoCadastroLogin({
+      Email: "AlterarNomeContaVivar@gmail.com"
+    })
+    cy.FluxoCriarContas();
+    cy.FluxoAlterarNomeConta();
   });
+
+  it('FluxoAlternativoContaNomeJaExistente',() => {
+    cy.FluxoCadastroLogin({
+      Email: "ContaJaExistenteVivar@gmail.com"
+    })
+    cy.FluxoCriarContas();
+    cy.FluxoAlternativoContaNomeJaExistente();
+
+  });
+
+  it('FluxoExcluirContaComMovimentação',() => {
+    cy.FluxoCadastroLogin({
+      Email: "ContaMovimentacaoJaExistenteVivar@gmail.com"
+    })
+    cy.FluxoCriarContas();
+    cy.FluxoExcluirContaComMovimentação();
+  });
+
+  it('FluxoCriarMovimentacao',() => {
+    cy.FluxoCadastroLogin({
+      Email: "CriarMovimentacaoVivar@gmail.com"
+    })
+    cy.FluxoCriarContas();
+    cy.FluxoCriarMovimentacao();
+  });
+
+  it('FluxoValidacaoCampoDataValor',() => {
+    cy.FluxoCadastroLogin({
+      Email: "ValidacaoCampoDataValor@gmail.com"
+    })
+    cy.FluxoCriarContas();
+    cy.FluxoValidacaoCampoDataValor();
+  });
+
+  it('FluxoResumoMensal',() => {
+    cy.FluxoCadastroLogin({
+      Email: "ResumoMensalVivar@gmail.com"
+    })
+    cy.FluxoCriarContas();
+    cy.FluxoCriarMovimentacao();
+    cy.FluxoResumoMensal();
+  });
+
+  it('FluxoSairConta',() => {
+    cy.FluxoCadastroLogin({
+      Email: "SairContaVivar@gmail.com"
+    })
+    cy.FluxoSairConta();
+  });
+
 })
