@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress');
 const path = require('path');
 
 // Função para obter a data no formato YYYY-MM-DD
+
 const getFormattedDate = () => {
   const now = new Date();
   const year = now.getFullYear();
@@ -16,6 +17,7 @@ const reportFilename = `report_${date}`;
 
 module.exports = defineConfig({
   e2e: {
+    baseUrl: 'https://seubarriga.wcaquino.me/login',
     setupNodeEvents(on, config) {
       // Configurações dos eventos
     },

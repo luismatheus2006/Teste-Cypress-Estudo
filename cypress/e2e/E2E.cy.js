@@ -3,19 +3,19 @@ describe('template spec', () => {
     cy.visit('https://seubarriga.wcaquino.me/login');
     
   })
-  it('FEATURE01_Login',() => {
-    cy.FEATURE01_Login();
+  it('Feature01_Loginn',() => {
+    cy.Feature01_Login();
   });
-  it('FEATURE02_Contas',() => {
-    cy.FEATURE02_Contas();
+  it('Feature02_Contas',() => {
+    cy.Feature02_Contas();
   });
-  it('FEATURE03_Movimentação',() => {
-    cy.FEATURE03_Movimentação();
+  it('Feature03_Movimentação',() => {
+    cy.Feature03_Movimentação();
   });
-  it('FEATURE04_Resumo_mensal',() => {
-    cy.FEATURE04_Resumo_mensal();
+  it('Feature04_Resumo_mensal',() => {
+    cy.Feature04_Resumo_mensal();
   });
-  it('FEATURE05_Logout',() => {
-    cy.FEATURE05_Logout();
+  it('Feature05_Logout',() => {
+    cy.Feature05_Logout();
   });
 })
