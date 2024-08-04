@@ -51,7 +51,12 @@ describe('template spec', () => {
       Email: "CriarMovimentacaoVivar@gmail.com"
     })
     cy.FluxoCriarContas();
-    cy.FluxoCriarMovimentacao();
+    cy.FluxoCriarMovimentacao({
+      Conta: "Nome da conta 1"
+    });
+    cy.FluxoCriarMovimentacao({
+      Conta: "Nome da conta 2"
+    });
   });
 
   it('FluxoValidacaoCampoDataValor',() => {
@@ -67,7 +72,12 @@ describe('template spec', () => {
       Email: "ResumoMensalVivar@gmail.com"
     })
     cy.FluxoCriarContas();
-    cy.FluxoCriarMovimentacao();
+    cy.FluxoCriarMovimentacao({
+      Conta: "Nome da conta 1"
+    });
+    cy.FluxoCriarMovimentacao({
+      Conta: "Nome da conta 2"
+    });
     cy.FluxoResumoMensal();
   });
 
