@@ -1,13 +1,9 @@
-# Desafio_QA-GAC-Luis_Farias
+# Teste Cypress
 
 
 ## Observações
 
-Este projeto refere-se ao teste "Desafio QA" do GAC, desenvolvido por **Luis Matheus Vasconcelos de Farias**. Os testes foram implementados utilizando o Cypress e atendem aos requisitos especificados no documento da prova.
-
-Se houver qualquer dúvida ou precisar de mais informações sobre o projeto, sinta-se à vontade para entrar em contato.
-
-
+Desenvolvido por **Luis Matheus Vasconcelos de Farias**. Os testes foram implementados utilizando o Cypress.
 
 # Versões utilizadas
 
